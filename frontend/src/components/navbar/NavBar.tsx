@@ -15,7 +15,7 @@ const NavBar: React.FC = () => {
                         <Col lg="4">
                             {icons.map((el, index) => {
                                 return (
-                                    <span style={{ marginLeft: 22, cursor: 'pointer', fontSize: 18 }} key={`icon-${index}`}>
+                                    <span className="icon" key={`icon-${index}`}>
                                         <FontAwesomeIcon icon={el} color="#606060"/>
                                     </span>
                                 );
@@ -26,10 +26,10 @@ const NavBar: React.FC = () => {
                                 <span style={{ marginRight: 22 }}>
                                     English
                                 </span>
-                                <span style={{ marginRight: 22, cursor: 'pointer', fontSize: 18 }}>
+                                <span className="icon">
                                     <FontAwesomeIcon icon={faBell} color="#606060"/>
                                 </span>
-                                <span style={{ marginRight: 22, cursor: 'pointer', fontSize: 18 }}>
+                                <span className="icon">
                                     <FontAwesomeIcon icon={faSearch} color="#606060" />
                                 </span>
                                 <span style={{ marginRight: 22 }}>

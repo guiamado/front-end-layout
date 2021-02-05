@@ -1,0 +1,10 @@
+.icon {
+    margin-right: 22px;
+    cursor: pointer;
+    font-size: 18px;
+    &:hover {
+        svg {
+            color: $corBlue600 !important;
+        }
+    }
+}
