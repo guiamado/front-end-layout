@@ -1,0 +1,16 @@
+#BreadCrumb {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    .pageName {
+        font-size: 24px;
+        display: inline-flex;
+        margin-right: 19px;
+    }
+    .pageBreadCrumb {
+        cursor: pointer;
+        &:hover {
+            color: $corBlue600 !important;
+        }
+    }
+    
+}
