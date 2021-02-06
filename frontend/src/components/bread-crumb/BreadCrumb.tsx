@@ -22,7 +22,7 @@ const BreadCrumb: React.FC<Props> = (props) => {
                     <FontAwesomeIcon icon={faHome} color="#000000"/>
                 </span>
                 {routeArray.map((el, index) => {
-                    return (<span>
+                    return (<span key={`pageindex_${index}`}>
                         <span style={{ marginLeft: 11, marginRight: 11, width: 11, height: 8 }}>{'>>'}</span>
                         <span
                             style={{ fontSize: 14, color: routeArray.length - 1 === index ? '#2C2C2C' : '#000000' }}
