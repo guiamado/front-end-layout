@@ -13,7 +13,7 @@ const NavBar: React.FC = () => {
             <Card className="navBar">
                 <Card.Body style={{ paddingTop: 15, paddingBottom: 15 }}>
                     <Row>
-                        <Col lg="4" xs={{ order: 'last', span: 12 }}>
+                        <Col lg="4" xs={{ order: Utils.isMobile ? 'last' : 'first', span: 12 }}>
                             {icons.map((el, index) => {
                                 return (
                                     <span className="icon" key={`icon-${index}`}>
@@ -27,7 +27,7 @@ const NavBar: React.FC = () => {
                                 <hr />
                             </Col>
                         )}
-                        <Col lg={{ span: 4, offset: 4 }} xs={{ order: 'first', span: 12 }}>
+                        <Col lg={{ span: 4, offset: 4 }} xs={{ order: Utils.isMobile ? 'first' : 'last', span: 12 }}>
                             <div className="profile">
                                 <span style={{ marginRight: 22 }}>
                                     English
