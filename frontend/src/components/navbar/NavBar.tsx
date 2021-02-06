@@ -3,16 +3,17 @@ import { Card, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckSquare, faCommentAlt, faEnvelope, faCalendar, faStar, faBell } from "@fortawesome/free-regular-svg-icons";
 import { faSearch, faUserCircle } from "@fortawesome/free-solid-svg-icons";
+import Utils from 'components/commons/Utils';
 
 const NavBar: React.FC = () => {
     const icons = [faCheckSquare, faCommentAlt, faEnvelope, faCalendar, faStar];
 
     return (<Row>
         <Col lg="12">
-            <Card style={{ height: 62 }} className="navBar">
+            <Card className="navBar">
                 <Card.Body style={{ paddingTop: 15, paddingBottom: 15 }}>
                     <Row>
-                        <Col lg="4">
+                        <Col lg="4" xs={{ order: 'last', span: 12 }}>
                             {icons.map((el, index) => {
                                 return (
                                     <span className="icon" key={`icon-${index}`}>
@@ -21,8 +22,13 @@ const NavBar: React.FC = () => {
                                 );
                             })}
                         </Col>
-                        <Col lg={{ span: 4, offset: 4 }}>
-                            <div style={{ display: 'flex', fontSize: 14, justifyContent: 'flex-end', color: '#2C2C2C' }}>
+                        {Utils.isMobile && (
+                            <Col xs="12">
+                                <hr />
+                            </Col>
+                        )}
+                        <Col lg={{ span: 4, offset: 4 }} xs={{ order: 'first', span: 12 }}>
+                            <div className="profile">
                                 <span style={{ marginRight: 22 }}>
                                     English
                                 </span>

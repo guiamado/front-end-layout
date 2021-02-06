@@ -3,6 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import Settings from 'assets/images/icons/Settings';
+import Utils from 'components/commons/Utils';
 
 type Props = {
     pageName: string;
@@ -12,12 +13,17 @@ type Props = {
 const BreadCrumb: React.FC<Props> = (props) => {
     const { pageName, route } = props;
     const routeArray = route.split('/');
+    
     return (<Row id="BreadCrumb">
-        <Col lg="6">
+        <Col lg="6" xs="10">
             <div>
                 <h1 className="pageName">
-                    {pageName} |
+                    {pageName}
+                    {!Utils.isMobile ? ' |' : ''}
                 </h1>
+                {Utils.isMobile && (
+                    <br/>
+                )}
                 <span className="icon" id="homeIconBreadCrumb">
                     <FontAwesomeIcon icon={faHome} color="#000000"/>
                 </span>
@@ -35,7 +41,7 @@ const BreadCrumb: React.FC<Props> = (props) => {
                 
             </div>
         </Col>
-        <Col lg="6">
+        <Col lg="6" xs="2">
             <div className="settings">
                 <Settings fill="#253858" />
             </div>
