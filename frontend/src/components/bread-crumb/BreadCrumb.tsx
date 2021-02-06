@@ -23,7 +23,6 @@ const BreadCrumb: React.FC<Props> = (props) => {
                 </span>
                 {routeArray.map((el, index) => {
                     return (<span>
-                        {/* {`>> ${el}`} */}
                         <span style={{ marginLeft: 11, marginRight: 11, width: 11, height: 8 }}>{'>>'}</span>
                         <span
                             style={{ fontSize: 14, color: routeArray.length - 1 === index ? '#2C2C2C' : '#000000' }}
@@ -37,7 +36,7 @@ const BreadCrumb: React.FC<Props> = (props) => {
             </div>
         </Col>
         <Col lg="6">
-            <div style={{ textAlign: 'right' }}>
+            <div className="settings">
                 <Settings fill="#253858" />
             </div>
         </Col>

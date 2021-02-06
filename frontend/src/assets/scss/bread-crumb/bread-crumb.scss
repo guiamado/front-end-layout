@@ -12,5 +12,14 @@
             color: $corBlue600 !important;
         }
     }
+    .settings {
+        text-align: right;
+        svg {
+            cursor: pointer;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
     
 }
