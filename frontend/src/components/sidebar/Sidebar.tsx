@@ -12,6 +12,7 @@ export type SidebarItem = {
     isTitle?: boolean;
     childs?: any[];
     hasPrependIcon?: boolean;
+    isIconSvg?: boolean;
 };
 
 type Props = {
@@ -57,21 +58,56 @@ const Home: React.FC<Props> = (props) => {
         },
         {
             text: 'Grid',
-            icon: 'faEnvelopeRegular',
+            icon: 'layout',
             hasPrependIcon: true,
+            isIconSvg: true,
         },
         {
             text: 'Colors',
-            icon: 'faCommentAltRegular',
+            icon: 'droplet',
+            isIconSvg: true,
         },
         {
             text: 'Card',
-            icon: 'faCheckSquareRegular',
+            icon: 'creditCard',
             hasPrependIcon: true,
+            isIconSvg: true,
         },
         {
             text: 'Table',
-            icon: 'faCalendarRegular',
+            icon: 'grid',
+            isIconSvg: true,
+        },
+        {
+            text: 'Components',
+            icon: 'archive',
+            isIconSvg: true,
+            hasPrependIcon: true,
+        },
+        {
+            text: 'FORMS',
+            isTitle: true,
+        },
+        {
+            text: 'Form Elements',
+            icon: 'copy',
+            hasPrependIcon: true,
+            isIconSvg: true,
+        },
+        {
+            text: 'Form Layouts',
+            icon: 'sideBar',
+            isIconSvg: true,
+        },
+        {
+            text: 'Form Wizard',
+            icon: 'fileText',
+            isIconSvg: true,
+        },
+        {
+            text: 'Form Validation',
+            icon: 'checkCircle',
+            isIconSvg: true,
         },
     ];
 
@@ -100,7 +136,11 @@ const Home: React.FC<Props> = (props) => {
                             style={{display: !el.hasPrependIcon ? 'table' : ''}}
                         >
                             <span className="itemSidebarIcon">
-                                <FontAwesomeIcons icon={String(el.icon)} color="#606060"/>
+                                {el.isIconSvg ? (
+                                    <Icons icon={String(el.icon)} />
+                                ) : (
+                                    <FontAwesomeIcons icon={String(el.icon)} color="#606060"/>
+                                )}
                             </span>
                             {el.text}
                             {el.hasPrependIcon && (

@@ -31,9 +31,6 @@
         path {
             stroke: $corLight0 !important;
         }
-        .dropdown-title {
-            // margin-right: 82px;
-        }
         .action-dropdown {
             font-size: 10px;
             padding-top: 5px;
@@ -73,6 +70,12 @@
             cursor: pointer;
             svg {
                 color: $corBlue600 !important;
+            }
+            path {
+                stroke: $corBlue600 !important;
+            }
+            rect {
+                stroke: $corBlue600 !important;
             }
         }
         .itemSidebarIcon {
