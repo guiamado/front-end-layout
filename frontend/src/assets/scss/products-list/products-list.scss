@@ -80,6 +80,7 @@
     }
 
     .product-image {
+        align-self: center;
         @media (max-width: 769px) {
             text-align: center;
         }
@@ -118,7 +119,7 @@
         .card {
             margin: 20px 0;
             font-size: 14px;
-            width: 60px;
+            width: 61px;
             height: 30px;
             background-color: $corYellow500;
             border-radius: 3px;

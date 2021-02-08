@@ -1,0 +1,78 @@
+#Sidebar {
+    height: 100%;
+    width: 280px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: $corLight0;
+    overflow-x: hidden;
+    padding: 31px 20px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.170509);
+    font-size: 15px;
+
+    .dropdown-item-sidebar {
+        background-color: $corBlue600;
+        border-radius: 4px;
+        padding: 6px 13px;
+        color: $corLight0;
+        cursor: pointer;
+        width: 236px;
+        path {
+            stroke: $corLight0 !important;
+        }
+        .dropdown-title {
+            // margin-right: 82px;
+        }
+        .action-dropdown {
+            font-size: 10px;
+            padding-top: 5px;
+            float: right;
+        }
+    }
+    .child-dropdown {
+        margin-left: 20px;
+        margin-top: 10px;
+        &:hover {
+            color: $corBlue600 !important;
+            cursor: pointer;
+            svg {
+                color: $corBlue600 !important;
+            }
+        }
+
+        .child-dropdown-icon {
+            font-size: 10px;
+            margin-right: 8px;
+            
+        }
+    }
+
+    .sidebarTitle {
+        margin-left: 13px;
+        margin-bottom: 15px;
+        color: #999999;
+    }
+
+    .itemSidebar {
+        margin-left: 13px;
+        margin-bottom: 15px;
+        color: #2C2C2C;
+        &:hover {
+            color: $corBlue600 !important;
+            cursor: pointer;
+            svg {
+                color: $corBlue600 !important;
+            }
+        }
+        .itemSidebarIcon {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .prependIconSidebar {
+            font-size: 10px;
+            float: right;
+        }
+    }
+}

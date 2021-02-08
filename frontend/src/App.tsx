@@ -1,13 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import 'assets/scss/main.scss';
+import { Row } from 'react-bootstrap';
 import Home from './components/home/Home';
+import Sidebar from 'components/sidebar/Sidebar';
 
 function App() {
   return (
     <div className="App">
-      <Home/>
+        <Sidebar />
+        <Home/>
     </div>
   );
 }
