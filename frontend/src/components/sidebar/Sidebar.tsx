@@ -2,6 +2,8 @@ import React from 'react';
 import Icons from 'assets/images/icons/Icons';
 import FontAwesomeIcons from 'components/commons/FontAwesomeIcons';
 import Dropdown from 'components/commons/Dropdown';
+import LogoGranCursos from 'assets/images/LogoGranCursos.svg';
+import Utils from 'components/commons/Utils';
 
 export type SidebarItem = {
     text: string;
@@ -12,7 +14,12 @@ export type SidebarItem = {
     hasPrependIcon?: boolean;
 };
 
-const Home: React.FC = () => {
+type Props = {
+    onCloseSidebar: (data?: any) => void;
+}
+
+const Home: React.FC<Props> = (props) => {
+    const { onCloseSidebar } = props;
     const sidebarItens: SidebarItem[] = [
         {
             text: 'Dashboard',
@@ -70,6 +77,13 @@ const Home: React.FC = () => {
 
 
     return (<div id="Sidebar">
+        <div>
+            <img src={LogoGranCursos} alt="" height="30" width="162"/>
+            {Utils.isSmallDevice && (
+                <span id="closeSidebar" onClick={() => onCloseSidebar()}>&times;</span>
+            )}
+
+        </div>
         {sidebarItens.map((el, index) => {
             return (
                 <>

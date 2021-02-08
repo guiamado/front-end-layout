@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 import NavBar from '../navbar/NavBar';
 import BreadCrumb from 'components/bread-crumb/BreadCrumb';
 import ProductsList from 'components/products-list/ProductsList';
 import Filters from 'components/filters/Filters';
+import Utils from 'components/commons/Utils';
 
-const Home: React.FC = () => {
-    return (<div style={{ paddingRight: 35, paddingLeft: 315}}>
+type Props = {
+    onClickIconSidebar: (data?: any) => void;
+}
+
+const Home: React.FC<Props> = (props) => {
+    const { onClickIconSidebar } = props;
+    const styleHome: CSSProperties = {
+        paddingRight: 35,
+        paddingLeft: Utils.isSmallDevice ? 35 : 315,
+    }
+    return (<div style={styleHome}>
         <Row>
             <Col lg="12">
-                <NavBar />
+                <NavBar onClickIconSidebar={onClickIconSidebar}/>
             </Col>
             <Col lg="12">
                 <BreadCrumb pageName="Card Actions" route="eCommerce/Electronics"/>

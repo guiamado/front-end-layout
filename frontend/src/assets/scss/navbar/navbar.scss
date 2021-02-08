@@ -1,0 +1,47 @@
+.navBar {
+    @media (min-width: 770px) {
+        height: 62px;
+    }
+    @media (max-width: 769px) {
+        text-align: center;
+    }
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.135216) !important;
+    border-radius: 8px !important;
+    margin-top: 30px;
+    .profile {
+        display: flex;
+        font-size: 14px;
+        justify-content: flex-end;
+        color: #2C2C2C;
+        @media (max-width: 769px) {
+        align-items: center;
+        justify-content: center;
+        }
+    }
+}
+
+.btnSidebarNav {
+    margin-top: 30px;
+    height: 40px;
+    width: 40px;
+    background-color: #FFFFFF !important;
+    border-color: unset !important;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.135216);
+    border-radius: 8px !important;
+    padding: 0 !important;
+    .icon {
+        font-size: 22px;
+        margin-right: 0;
+    }
+    &:hover {
+        opacity: 0.8;
+        svg {
+            color: $corBlue600 !important;
+        }
+        &.gridBtn {
+            rect {
+                stroke: $corBlue600 !important;
+            }
+        }
+    }
+}
