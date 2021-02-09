@@ -6,7 +6,7 @@ import Sidebar from 'components/sidebar/Sidebar';
 import Utils from 'components/commons/Utils';
 
 const App: React.FC = () => {
-// function App() {
+
   const initialStateOpen = !Utils.isSmallDevice;
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(initialStateOpen);
   function onClickIconSidebar() {

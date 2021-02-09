@@ -2,7 +2,8 @@ import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faChevronDown as faChevronDownSolid,
-    faChevronRight as  faChevronRightSolid
+    faChevronRight as  faChevronRightSolid,
+    faFilter as faFilterSolid,
 } from "@fortawesome/free-solid-svg-icons";
 import {
     faCheckSquare as faCheckSquareRegular,
@@ -19,7 +20,7 @@ type Props = {
     icon: string;
 };
 
-const Icons: React.FC<Props> = (props) => {
+const FontAwesomeIcons: React.FC<Props> = (props) => {
     const {color = "#FFFFFF", icon } = props;
     const CheckIconFontAwesome = () => {
         switch (icon) {
@@ -41,6 +42,8 @@ const Icons: React.FC<Props> = (props) => {
                 return <FontAwesomeIcon icon={faChevronDownSolid} color={color}/>;
             case 'faChevronRightSolid':
                 return <FontAwesomeIcon icon={faChevronRightSolid} color={color}/>;
+            case 'faFilterSolid':
+                return <FontAwesomeIcon icon={faFilterSolid} color={color}/>;
             default:
                 return <span></span>;
         }
@@ -49,4 +52,4 @@ const Icons: React.FC<Props> = (props) => {
     return <CheckIconFontAwesome />;
 }
 
-export default Icons;
+export default FontAwesomeIcons;

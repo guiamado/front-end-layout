@@ -1,0 +1,10 @@
+.modal-style {
+    .modal-header {
+        background-color: $corBlue600 !important;
+        color: $corLight0;
+        button {
+            color: $corLight0;
+            opacity: unset;
+        }
+    }
+}
