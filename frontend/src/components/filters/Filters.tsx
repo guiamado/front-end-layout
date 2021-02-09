@@ -1,16 +1,21 @@
 import React from 'react';
 import { Row, Col, Card } from 'react-bootstrap';
-import NavBar from '../navbar/NavBar';
-import BreadCrumb from 'components/bread-crumb/BreadCrumb';
-import ProductsList from 'components/products-list/ProductsList';
 
-type MultiRange = {
+type FilterOptions = {
     value: string;
     label: string;
+    prependValue?: number;
+};
+
+type Filter = {
+    filterName: string;
+    filterType: string;
+    options: FilterOptions[];
 }
 
+
 const Home: React.FC = () => {
-    const multiRangeOptions: MultiRange[] = [
+    const multiRangeOptions: FilterOptions[] = [
         {
             value: '10',
             label: '$10'
@@ -27,32 +32,102 @@ const Home: React.FC = () => {
             value: 'all',
             label: 'All'
         },
+    ];
+
+    const categoryOptions: FilterOptions[] = [
+        {
+            value: 'cellPhones',
+            label: 'Cell Phones',
+            prependValue: 1920
+        },
+        {
+            value: 'computers&TabletsCell',
+            label: 'Computers & Tablets Cell',
+            prependValue: 1820
+        },
+        {
+            value: 'audio',
+            label: 'Audio',
+            prependValue: 120
+        },
+        {
+            value: 'iPhoneAccessories',
+            label: 'iPhone Accessories',
+            prependValue: 353
+        },
+    ];
+
+    const brandOptions: FilterOptions[] = [
+        {
+            value: 'insigni',
+            label: 'Insigni',
+            prependValue: 220
+        },
+        {
+            value: 'samsung',
+            label: 'Samsung',
+            prependValue: 120
+        },
+        {
+            value: 'apple',
+            label: 'Apple',
+            prependValue: 320
+        },
+        {
+            value: 'HP',
+            label: 'HP',
+            prependValue: 32
+        },
+    ];
+
+    const filters:Filter[] = [
+        {
+            filterName: 'Multi Range',
+            filterType: 'radio',
+            options: multiRangeOptions,
+        },
+        {
+            filterName: 'Category',
+            filterType: 'checkbox',
+            options: categoryOptions,
+        },
+        {
+            filterName: 'Brand',
+            filterType: 'checkbox',
+            options: brandOptions,
+        },
     ]
+
     return (<div id="Filters">
-        <div>
-            Filters
-        </div>
-        <Card>
+        <Row>
+            <Col lg="12">
+                <div id="FilterTitle">
+                    Filters
+                </div>
+            </Col>
+        </Row>
+        <Card className="CardFilter">
             <Card.Body>
-                {multiRangeOptions.map((el, index) => {
-                    return (<div key={`multiRange_${index}`}>
-                        <input type="radio" value={el.value}  name="multiRange" />
-                        <label>{el.label}</label>
-                    </div>)
+                {filters.map((filter, indexFilter) => {
+                    return (
+                        <div key={`filter_${indexFilter}`}>
+                            <div className="SectionTitle">
+                                {filter.filterName}
+                            </div>
+                            {filter.options.map((el, index) => {
+                                return (<div key={`filterSection_${index}`} className="RadioBtnFilter">
+                                    <input type={filter.filterType} value={el.value}  name={`group_${indexFilter}`}/>
+                                    <label>{el.label}</label>
+                                    {el.prependValue && <span className="prependInfo">{el.prependValue}</span>}
+                                </div>)
+                            })}
+                            {(filters.length - 1 !== indexFilter) && <hr/>}
+                        </div>
+                    );
                 })}
+
             </Card.Body>
         </Card>
-        {/* <Row>
-            <Col lg="12">
-                <NavBar />
-            </Col>
-            <Col lg="12">
-                <BreadCrumb pageName="Card Actions" route="eCommerce/Electronics"/>
-            </Col>
-            <Col lg="12">
-             <ProductsList />
-            </Col>
-        </Row> */}
     </div>);
 }
 

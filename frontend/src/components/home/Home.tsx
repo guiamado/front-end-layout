@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-import { Row, Col, Container } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import NavBar from '../navbar/NavBar';
 import BreadCrumb from 'components/bread-crumb/BreadCrumb';
 import ProductsList from 'components/products-list/ProductsList';
