@@ -4,6 +4,7 @@ import {
     faChevronDown as faChevronDownSolid,
     faChevronRight as  faChevronRightSolid,
     faFilter as faFilterSolid,
+    faStar as faStarSolid,
 } from "@fortawesome/free-solid-svg-icons";
 import {
     faCheckSquare as faCheckSquareRegular,
@@ -34,6 +35,8 @@ const FontAwesomeIcons: React.FC<Props> = (props) => {
                 return <FontAwesomeIcon icon={faCalendarRegular} color={color}/>;
             case 'faStarRegular':
                 return <FontAwesomeIcon icon={faStarRegular} color={color}/>;
+            case 'faStarSolid':
+                return <FontAwesomeIcon icon={faStarSolid} color={color}/>;
             case 'faBellRegular':
                 return <FontAwesomeIcon icon={faBellRegular} color={color}/>;
             case 'faCircleRegular':

@@ -28,6 +28,21 @@
         color: $corDark900;
     }
 
+    .btnClearFilter {
+        margin-top: 23px;
+        .btn {
+            width: 100%;
+            border: unset;
+            background: $corRed500;
+            border-radius: 8px;
+            color: $corLight0;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.135216);
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
     .RadioBtnFilter input[type="radio"] {
         -webkit-appearance: none;
         width: 15px;

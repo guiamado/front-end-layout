@@ -10,7 +10,6 @@ const App: React.FC = () => {
   const initialStateOpen = !Utils.isSmallDevice;
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(initialStateOpen);
   function onClickIconSidebar() {
-    console.log('oi')
     setIsSidebarOpen(!isSidebarOpen);
   }
 

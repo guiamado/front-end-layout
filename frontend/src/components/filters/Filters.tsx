@@ -1,5 +1,6 @@
 import React from 'react';
-import { Row, Col, Card } from 'react-bootstrap';
+import { Row, Col, Card, Button } from 'react-bootstrap';
+import Rating from 'components/commons/Rating';
 
 type FilterOptions = {
     value: string;
@@ -10,7 +11,13 @@ type FilterOptions = {
 type Filter = {
     filterName: string;
     filterType: string;
-    options: FilterOptions[];
+    options?: FilterOptions[];
+    ratings?: RatingOptions[];
+}
+
+type RatingOptions = {
+    value: number;
+    quantity: number;
 }
 
 
@@ -80,6 +87,21 @@ const Home: React.FC = () => {
         },
     ];
 
+    const ratings: RatingOptions[] = [
+        {
+            quantity: 8500,
+            value: 5
+        },
+        {
+            quantity: 3250,
+            value: 4
+        },
+        {
+            quantity: 1120,
+            value: 3
+        },
+    ]
+
     const filters:Filter[] = [
         {
             filterName: 'Multi Range',
@@ -96,7 +118,13 @@ const Home: React.FC = () => {
             filterType: 'checkbox',
             options: brandOptions,
         },
-    ]
+        {
+            filterName: 'Ratings',
+            filterType: 'rating',
+            ratings
+        },
+        
+    ];
 
     return (<div id="Filters">
         <Row>
@@ -114,20 +142,33 @@ const Home: React.FC = () => {
                             <div className="SectionTitle">
                                 {filter.filterName}
                             </div>
-                            {filter.options.map((el, index) => {
+                            {filter.options && filter.options.map((el, index) => {
                                 return (<div key={`filterSection_${index}`} className="RadioBtnFilter">
-                                    <input type={filter.filterType} value={el.value}  name={`group_${indexFilter}`}/>
+                                    <input type={filter.filterType} value={el.value}  name={`group_${indexFilter}`} />
                                     <label>{el.label}</label>
                                     {el.prependValue && <span className="prependInfo">{el.prependValue}</span>}
                                 </div>)
+                            })}
+                            {filter.ratings && filter.ratings.map((rating, indexRating) => {
+                                return (
+                                    <div key={`rating_${indexRating}`} className="ratingsFilter">
+                                        <Rating rating={rating.value}/>
+                                        {' & Up'}
+                                        {rating.quantity && <span className="prependInfo">{rating.quantity}</span>}
+                                    </div>
+                                )
                             })}
                             {(filters.length - 1 !== indexFilter) && <hr/>}
                         </div>
                     );
                 })}
-
             </Card.Body>
         </Card>
+        <div className="btnClearFilter">
+            <Button>
+                CLEAR ALL FILTERS
+            </Button>
+        </div>
     </div>);
 }
 
