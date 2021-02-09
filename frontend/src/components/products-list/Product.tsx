@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Button, Card } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faHeart } from "@fortawesome/free-regular-svg-icons";
@@ -7,8 +7,27 @@ import ShoppingCart from 'assets/images/icons/ShoppingCart';
 import ShoppingBag from 'assets/images/icons/ShoppingBag';
 import ImageNotFound from 'assets/images/image-not-found.png';
 
-const Home: React.FC = () => {
+export type ProductType = {
+    title: string;
+    brand: string;
+    description: string;
+    rating?: number;
+    price: number;
+    onWishList: boolean;
+};
+
+type Props = {
+    product: ProductType;
+}
+
+const Home: React.FC<Props> = (props) => {
+    const { product } = props;
     const [isWishlist, setIsWishlist] = useState<boolean>(false);
+
+    useEffect(() => {
+        setIsWishlist(product.onWishList);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (<Card className="product">
         <Card.Body>
@@ -18,17 +37,13 @@ const Home: React.FC = () => {
                 </Col>
                 <Col className="product-text" lg="5" xs="12">
                     <div className="product-title">
-                        Apple Watch Series 4 GPS
+                        {product.title}
                     </div>
                     <div className="product-category">
-                        By Apple
+                        By {product.brand}
                     </div>
                     <div className="product-desc">
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the industry's
-                        standard dummy text ever since the 1500s, when an unknown
-                        printer took a galley of type and scrambled it to make
-                        a type specimen book.
+                        {product.description}
                     </div>
                 </Col>
                 <Col lg="1">
@@ -38,12 +53,20 @@ const Home: React.FC = () => {
                     <div className="product-rating">
                         <Card>
                             <Card.Body>
-                                3.4 <FontAwesomeIcon icon={faStar} color="#FFFFFF"/>
+                                {product.rating ? (
+                                    <>
+                                        {product.rating} <FontAwesomeIcon icon={faStar} color="#FFFFFF"/>
+                                    </>
+                                ) : (
+                                    <>
+                                        NEW <FontAwesomeIcon icon={faStar} color="#FFFFFF"/>
+                                    </>
+                                )}
                             </Card.Body>
                         </Card>
                     </div>
                     <div className="product-price">
-                        $399
+                        ${product.price}
                     </div>
                     <div className="product-shipping">
                         <ShoppingCart />{' '}Free Shipping
